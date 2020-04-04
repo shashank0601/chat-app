@@ -11,6 +11,9 @@ app.use(router)
 
 io.on('connection',(socket) =>{
     console.log('New connection in app');
+    socket.on('join',({user,chatroom})=>{
+        console.log(user, chatroom)
+    })
     socket.on('disconnect',()=>{
         console.log('User has left');
     })
