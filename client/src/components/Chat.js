@@ -3,6 +3,7 @@ import io from 'socket.io-client';
 import queryString from 'query-string';
 import InfoTag from './InfoTag.js';
 import MessageInput from './MessageInput.js';
+import DisplayMessages from './DisplayMessages.js';
 
 let socket;
 
@@ -49,11 +50,12 @@ const Chat = ({location}) =>{
         <div className='outerContainer'>
             <div className='container'>
                 <InfoTag chatroom={chatroom} />
+                <DisplayMessages messages={messages} name={name}/>
                 <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
                 {/* <input value={message} 
                 onChange={(event)=>setMessage(event.target.value)} 
                 onKeyPress={(event)  => event.key === 'Enter' ? sendMessage(event) : null } /> */}
-            </div>
+            </div> 
         </div>
     )
 }
